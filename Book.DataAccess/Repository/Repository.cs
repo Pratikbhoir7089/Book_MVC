@@ -8,7 +8,7 @@ using Book.DataAccess.Data;
 using Book.DataAccess.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 
-namespace Book.DataAccess.Repository.IRepository
+namespace Book.DataAccess.Repository
 {
     public class Repository<T> : IRepository<T> where T : class
     {
@@ -17,7 +17,7 @@ namespace Book.DataAccess.Repository.IRepository
         public Repository(ApplicationDbContext db)
         {
             _db = db;
-            this.dbSet = _db.Set<T>();
+            dbSet = _db.Set<T>();
 
         }
         public void Add(T entity)
